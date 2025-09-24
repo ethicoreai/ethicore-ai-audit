@@ -5,6 +5,10 @@ import pandas as pd
 
 app = Flask(__name__)
 
+@app.route('/', methods=['GET'])  # Add this new root route
+def home():
+    return jsonify({"message": "EthiCore AI Audit API is live! Use POST /audit for bias checks."})
+
 @app.route('/audit', methods=['POST'])
 def run_audit():
     data = request.json
